@@ -46,7 +46,6 @@ function App() {
 
   const handleSelectSkip = (skip: Skip) => {
     setSelectedSkip(skip);
-    setShowModal(true);
   };
 
   return (
@@ -82,6 +81,11 @@ function App() {
                     skip={skip}
                     imageUrl={getImageBySize(skip.size)}
                     onSelect={handleSelectSkip}
+                    onViewDetails={(selected) => {
+                      // show modal logic
+                      setSelectedSkip(selected);
+                      setShowModal(true);
+                    }}
                   />
                 </div>
               ))}
