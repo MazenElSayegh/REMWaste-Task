@@ -25,15 +25,15 @@
 }
 
 .skip-button {
-  border: 2px solid var(--template-text-color);
-  color: var(--template-text-color);
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
+  border: 2px solid var(--template-text-color) !important;
+  color: var(--template-text-color) !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease-in-out !important;
 }
 
 .skip-button:hover {
-  background-color: var(--template-text-color);
-  color: white;
+  background-color: var(--template-text-color) !important;
+  color: white !important;
 }
 
 .selected-skip {

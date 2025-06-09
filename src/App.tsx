@@ -10,8 +10,8 @@ function App() {
   const [skips, setSkips] = useState<Skip[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeStep] = useState(2);
-
   const [selectedSkip, setSelectedSkip] = useState<Skip | null>(null);
+  const [modalSkip, setModalSkip] = useState<Skip | null>(null);
   const [showModal, setShowModal] = useState(false);
 
   const images = import.meta.glob("./assets/skips/*-yarder-skip.jpg", {
@@ -27,7 +27,7 @@ function App() {
   };
 
   useEffect(() => {
-    async function fetchSkips() {
+    const fetchSkips = async () => {
       try {
         const response = await fetch(
           "https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft"
@@ -39,7 +39,7 @@ function App() {
       } finally {
         setLoading(false);
       }
-    }
+    };
     fetchSkips();
   }, []);
 
@@ -54,11 +54,7 @@ function App() {
     setShowModal(false);
   };
 
-  const handleClearSelectedSkip = () => {
-    setSelectedSkip(null);
-  };
-
-  const [modalSkip, setModalSkip] = useState<Skip | null>(null);
+  const handleClearSelectedSkip = () => setSelectedSkip(null);
 
   return (
     <div>

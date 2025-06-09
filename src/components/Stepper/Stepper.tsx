@@ -19,39 +19,33 @@ const steps = [
 
 type StepperProps = {
   activeStep: number;
-  onStepClick?: (stepIndex: number) => void;
+  onStepClick?: (index: number) => void;
 };
 
 const Stepper = ({ activeStep, onStepClick }: StepperProps) => {
   return (
     <div className="stepper-container">
-      {steps.map((step, index) => {
+      {steps.map(({ label, icon }, index) => {
         const isActive = index === activeStep;
-        const isPrevious = index < activeStep;
-        const isClickable = isPrevious || isActive;
-
-        const handleClick = () => {
-          if (isClickable && onStepClick) {
-            onStepClick(index);
-          }
-        };
+        const isCompleted = index < activeStep;
+        const isClickable = isActive || isCompleted;
 
         return (
           <div
-            key={index}
+            key={label}
             className={`step-item ${
-              isActive ? "active" : isPrevious ? "previous" : ""
+              isActive ? "active" : isCompleted ? "previous" : ""
             }`}
-            onClick={handleClick}
+            onClick={() => isClickable && onStepClick?.(index)}
             style={{
               cursor: isClickable ? "pointer" : "default",
               pointerEvents: isClickable ? "auto" : "none",
             }}
           >
-            <div className="step-icon" title={step.label}>
-              {step.icon}
+            <div className="step-icon" title={label}>
+              {icon}
             </div>
-            <div className="step-label d-none d-md-inline">{step.label}</div>
+            <div className="step-label d-none d-md-inline">{label}</div>
           </div>
         );
       })}
