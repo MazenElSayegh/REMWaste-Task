@@ -15,11 +15,13 @@
 * 🧩 The layout was restructured to separate key sections: product listing, product details, and progress bar. This modular approach improved maintainability and readability.
 * ✨ I introduced cleaner UI elements, improved spacing, and modern icons to create a more intuitive and engaging experience.
 * 📱 To enhance responsiveness and accessibility, I applied a mobile-first design strategy, implemented flexible grid systems, and ensured screen reader compatibility where applicable.
+* 🖼️ I implemented a modal that displays additional product details when a product is clicked, allowing users to view more information without cluttering or overwriting the product list.
+* 🎨 I updated the color scheme to a more modern and visually appealing palette, incorporating eco-friendly tones to align with current design trends.
 
 ### 🚧 Challenges and Solutions
 
 * ⚙️ The progress bar was poorly displayed in the mobile view.
-* 🧠 I resolved this by replacing the traditional horizontal progress bar with a fixed sidebar that uses intuitive icons, making it easier for mobile users to navigate through steps.
+* 🧠 I resolved this by replacing the traditional horizontal progress bar with a fixed sidebar that uses intuitive icons for mobile views, making it easier for mobile users to navigate through steps.
 
 ### 🎉 Outcome
 
