@@ -1,0 +1,41 @@
+.skip-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  transition: transform 0.2s ease;
+  border: solid 1px #f1fff0;
+  transition: box-shadow 0.2s ease;
+}
+
+.skip-card:hover {
+  transform: translateY(-5px);
+  border-color: #81c784;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.skip-badge {
+  background-color: #81c784 !important;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.skip-price {
+  color: #43a047;
+  font-weight: bold;
+}
+
+.skip-button {
+  border: 2px solid #43a047;
+  color: #43a047;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.skip-button:hover {
+  background-color: #43a047;
+  color: white;
+}
+
+.selected-skip {
+  border: 2px solid #81c784 !important;
+}

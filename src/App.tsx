@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Stepper from "./components/Stepper";
-import SkipCard from "./components/SkipCard";
-import SkipDetailsModal from "./components/SkipDetailsModal";
+import { useEffect, useState } from "react";
 import type { Skip } from "./types/skip";
-import SkipFooter from "./components/SkipFooter";
+import Stepper from "./components/Stepper/Stepper";
+import SkipCard from "./components/SkipCard/SkipCard";
+import SkipDetailsModal from "./components/SkipDetailsModal/SkipDetailsModal";
+import SkipFooter from "./components/SkipFooter/SkipFooter";
 
 function App() {
   const [skips, setSkips] = useState<Skip[]>([]);

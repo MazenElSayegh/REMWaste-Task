@@ -1,0 +1,15 @@
+.template-background {
+  background-color: #f1fff0;
+}
+
+.modal-details {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .modal-details {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

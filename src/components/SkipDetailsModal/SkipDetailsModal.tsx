@@ -1,6 +1,6 @@
-// components/SkipDetailsModal.tsx
 import { Modal, Button } from "react-bootstrap";
-import type { Skip } from "../types/skip";
+import "./SkipDetailsModal.css";
+import type { Skip } from "../../types/skip";
 
 type SkipDetailsModalProps = {
   show: boolean;

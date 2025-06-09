@@ -1,4 +1,5 @@
-import type { Skip } from "../types/skip";
+import type { Skip } from "../../types/skip";
+import "./SkipCard.css";
 
 type SkipCardProps = {
   skip: Skip;

@@ -1,0 +1,11 @@
+.skip-price {
+  color: #43a047;
+  font-weight: bold;
+}
+
+.selected-skip-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1050; /* above Bootstrap modal backdrop */
+}

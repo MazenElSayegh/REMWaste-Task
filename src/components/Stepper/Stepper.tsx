@@ -6,6 +6,7 @@ import {
   FaCalendarAlt,
   FaCreditCard,
 } from "react-icons/fa";
+import "./Stepper.css";
 
 const steps = [
   { label: "Postcode", icon: <FaMapMarkerAlt /> },

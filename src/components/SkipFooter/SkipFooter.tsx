@@ -1,5 +1,6 @@
-import type { Skip } from "../types/skip";
 import { Button } from "react-bootstrap";
+import type { Skip } from "../../types/skip";
+import "./SkipFooter.css";
 
 type Props = {
   skip: Skip;
