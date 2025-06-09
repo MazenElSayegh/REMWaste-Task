@@ -1,10 +1,11 @@
 body {
   background-color: var(--template-background-color);
-  color: #1b1b1b;
+  color: var(--primary-text-color);
   font-family: "Segoe UI", sans-serif;
 }
 
 :root {
+  --primary-text-color: #1b1b1b;
   --white-grey: #e0e0e0;
   --third-color: #e8f5e9;
   --template-text-color: #43a047;
