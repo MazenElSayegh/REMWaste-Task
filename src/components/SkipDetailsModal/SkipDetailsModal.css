@@ -1,5 +1,5 @@
 .template-background {
-  background-color: #f1fff0;
+  background-color: var(--template-background-color);
 }
 
 .modal-details {

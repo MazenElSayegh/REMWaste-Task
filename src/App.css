@@ -5,8 +5,8 @@
 }
 
 .template-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: white;
+  border-bottom: 1px solid var(--white-grey);
   z-index: 110;
   position: relative;
 }
@@ -20,7 +20,11 @@
 }
 
 .template-footer {
-  background-color: #e8f5e9;
+  background-color: var(--third-color);
+}
+
+.template-color {
+  color: var(--template-text-color) !important;
 }
 
 /* Mobile layout: vertical, left-aligned, icon only */

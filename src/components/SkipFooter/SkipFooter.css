@@ -1,5 +1,5 @@
 .skip-price {
-  color: #43a047;
+  color: var(--template-text-color);
   font-weight: bold;
 }
 

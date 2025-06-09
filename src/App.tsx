@@ -72,7 +72,7 @@ function App() {
         <section className="template-hero py-4">
           <div className="container text-center">
             <h1 className="display-5 text-dark">Choose Your Skip Size</h1>
-            <p className="text-muted">
+            <p className="text-muted template-color">
               Eco-friendly skips for your next clean-up project
             </p>
           </div>

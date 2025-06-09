@@ -11,18 +11,18 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #6c757d;
+  color: var(--blue-grey);
   opacity: 0.7;
 }
 
 .step-item.active {
-  color: #198754;
+  color: var(--template-active);
   font-weight: bold;
   opacity: 1;
 }
 
 .step-item.previous {
-  color: #198754;
+  color: var(--template-active);
   opacity: 0.7;
 }
 
@@ -34,8 +34,8 @@
     position: fixed;
     left: 0;
     z-index: 100;
-    background: #fff;
-    border-right: 1px solid #ccc;
+    background: white;
+    border-right: 1px solid var(--light-grey);
     padding: 0.4rem;
     height: 100%;
     top: 0;

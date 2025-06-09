@@ -1,5 +1,16 @@
 body {
-  background-color: #f1fff0;
+  background-color: var(--template-background-color);
   color: #1b1b1b;
   font-family: "Segoe UI", sans-serif;
+}
+
+:root {
+  --white-grey: #e0e0e0;
+  --third-color: #e8f5e9;
+  --template-text-color: #43a047;
+  --template-background-color: #f1fff0;
+  --template-secondary-color: #81c784;
+  --blue-grey: #6c757d;
+  --template-active: #198754;
+  --light-grey: #ccc;
 }
