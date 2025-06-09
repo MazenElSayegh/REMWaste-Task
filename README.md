@@ -1,54 +1,26 @@
-# React + TypeScript + Vite
+## 🎨 Design Change Approach
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 📝 Original Design Overview
 
-Currently, two official plugins are available:
+* 🏷️ The original page is part of the product ordering process. It displays a list of products, allows users to select and view product details, and includes a progress bar indicating the current stage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🎯 Goals of the Redesign
 
-## Expanding the ESLint configuration
+* ✅ Improve usability, enhance visual appeal, and ensure full responsiveness across devices (UI/UX improvements).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🔧 Approach Taken
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+* 🔍 I began by reviewing the original layout to identify usability pain points, particularly on smaller screens.
+* 🛠️ I used modern front-end tools and frameworks such as \[React + Vite, Bootstrap, etc.], focusing on component-based design.
+* 🧩 The layout was restructured to separate key sections: product listing, product details, and progress bar. This modular approach improved maintainability and readability.
+* ✨ I introduced cleaner UI elements, improved spacing, and modern icons to create a more intuitive and engaging experience.
+* 📱 To enhance responsiveness and accessibility, I applied a mobile-first design strategy, implemented flexible grid systems, and ensured screen reader compatibility where applicable.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🚧 Challenges and Solutions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* ⚙️ The progress bar was poorly displayed in the mobile view.
+* 🧠 I resolved this by replacing the traditional horizontal progress bar with a fixed sidebar that uses intuitive icons, making it easier for mobile users to navigate through steps.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 🎉 Outcome
+
+* 📊 The redesigned page is significantly more user-friendly, visually appealing, and responsive across devices compared to the original.
