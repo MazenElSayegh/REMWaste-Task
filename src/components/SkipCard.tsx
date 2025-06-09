@@ -3,6 +3,7 @@ import type { Skip } from "../types/skip";
 type SkipCardProps = {
   skip: Skip;
   imageUrl: string;
+  selected: boolean;
   onSelect?: (skip: Skip) => void;
   onViewDetails?: (skip: Skip) => void;
 };
@@ -10,11 +11,16 @@ type SkipCardProps = {
 const SkipCard = ({
   skip,
   imageUrl,
+  selected,
   onSelect,
   onViewDetails,
 }: SkipCardProps) => {
   return (
-    <div className="card skip-card h-100 shadow-sm d-flex flex-column">
+    <div
+      className={`card skip-card h-100 shadow-sm d-flex flex-column ${
+        selected ? "selected-skip" : ""
+      }`}
+    >
       <div
         className="skip-card-details flex-grow-1 cursor-pointer"
         onClick={() => onViewDetails?.(skip)}

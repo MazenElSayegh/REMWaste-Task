@@ -5,11 +5,12 @@ import Stepper from "./components/Stepper";
 import SkipCard from "./components/SkipCard";
 import SkipDetailsModal from "./components/SkipDetailsModal";
 import type { Skip } from "./types/skip";
+import SkipFooter from "./components/SkipFooter";
 
 function App() {
   const [skips, setSkips] = useState<Skip[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeStep, setActiveStep] = useState(2);
+  const [activeStep] = useState(2);
 
   const [selectedSkip, setSelectedSkip] = useState<Skip | null>(null);
   const [showModal, setShowModal] = useState(false);
@@ -40,13 +41,25 @@ function App() {
         setLoading(false);
       }
     }
-
     fetchSkips();
+  }, []);
+
+  useEffect(() => {
+    const handleEvent = (e: any) => setSelectedSkip(e.detail);
+    window.addEventListener("select-skip", handleEvent);
+    return () => window.removeEventListener("select-skip", handleEvent);
   }, []);
 
   const handleSelectSkip = (skip: Skip) => {
     setSelectedSkip(skip);
+    setShowModal(false);
   };
+
+  const handleClearSelectedSkip = () => {
+    setSelectedSkip(null);
+  };
+
+  const [modalSkip, setModalSkip] = useState<Skip | null>(null);
 
   return (
     <div className="template-wrapper">
@@ -79,11 +92,11 @@ function App() {
                 <div className="col-md-3" key={skip.id}>
                   <SkipCard
                     skip={skip}
+                    selected={selectedSkip?.id === skip.id}
                     imageUrl={getImageBySize(skip.size)}
                     onSelect={handleSelectSkip}
-                    onViewDetails={(selected) => {
-                      // show modal logic
-                      setSelectedSkip(selected);
+                    onViewDetails={(skip) => {
+                      setModalSkip(skip);
                       setShowModal(true);
                     }}
                   />
@@ -96,10 +109,14 @@ function App() {
 
       <SkipDetailsModal
         show={showModal}
-        skip={selectedSkip}
-        imageUrl={selectedSkip ? getImageBySize(selectedSkip.size) : ""}
+        skip={modalSkip}
+        imageUrl={modalSkip ? getImageBySize(modalSkip.size) : ""}
         onClose={() => setShowModal(false)}
       />
+
+      {selectedSkip && (
+        <SkipFooter skip={selectedSkip} onClear={handleClearSelectedSkip} />
+      )}
 
       <footer className="template-footer mt-3 py-3 text-center text-muted">
         <small>

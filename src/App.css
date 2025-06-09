@@ -15,17 +15,13 @@ body {
   border-bottom: 1px solid #e0e0e0;
 }
 
-/* .template-hero {
-  background-color: #ffffff;
-} */
+.template-background {
+  background-color: #f1fff0;
+}
 
 .template-content {
   flex: 1;
 }
-
-/* .template-footer {
-  background-color: #f5f5f5;
-} */
 
 .template-hero {
   background-color: white;
@@ -128,4 +124,15 @@ body {
 
 .skip-card-details:hover .text-primary {
   text-decoration: underline;
+}
+
+.selected-skip-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1050; /* above Bootstrap modal backdrop */
+}
+
+.selected-skip {
+  border: 2px solid #81c784 !important;
 }
