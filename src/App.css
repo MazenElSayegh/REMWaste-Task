@@ -13,6 +13,8 @@ body {
 .template-header {
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
+  z-index: 110;
+  position: relative;
 }
 
 .template-background {
@@ -135,4 +137,74 @@ body {
 
 .selected-skip {
   border: 2px solid #81c784 !important;
+}
+
+/* last */
+
+.stepper-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6c757d;
+}
+
+.step-item.active {
+  color: #198754; /* Bootstrap's text-success */
+  font-weight: bold;
+}
+
+.step-item.previous {
+  color: #198754;
+  opacity: 0.8;
+}
+
+.modal-details {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Mobile layout: vertical, left-aligned, icon only */
+
+@media (max-width: 768px) {
+  .stepper-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    left: 0;
+    z-index: 100;
+    background: #fff;
+    border-right: 1px solid #ccc;
+    padding: 0.5rem;
+    height: 100%;
+    top: 0;
+    padding-top: 70px;
+    gap: 1rem;
+  }
+
+  .template-wrapper {
+    padding-left: 1.5rem;
+  }
+  .step-item {
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+  }
+
+  .step-icon {
+    font-size: 1.25rem;
+  }
+
+  .modal-details {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

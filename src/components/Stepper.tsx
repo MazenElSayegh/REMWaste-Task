@@ -23,53 +23,35 @@ type StepperProps = {
 
 const Stepper = ({ activeStep, onStepClick }: StepperProps) => {
   return (
-    <div className="py-3">
-      <div className="d-flex align-items-center justify-content-center gap-3 flex-wrap">
-        {steps.map((step, index) => {
-          const isActive = index === activeStep;
-          const isPrevious = index < activeStep;
-          const isClickable = isPrevious || isActive;
+    <div className="stepper-container">
+      {steps.map((step, index) => {
+        const isActive = index === activeStep;
+        const isPrevious = index < activeStep;
+        const isClickable = isPrevious || isActive;
 
-          const textClass = isActive
-            ? "text-success"
-            : isPrevious
-            ? "text-success opacity-80"
-            : "text-muted opacity-80";
+        const handleClick = () => {
+          if (isClickable && onStepClick) {
+            onStepClick(index);
+          }
+        };
 
-          const connectorClass =
-            isPrevious || isActive
-              ? "border-top border-success opacity-70"
-              : "border-top border-muted opacity-70";
-
-          const handleClick = () => {
-            if (isClickable && onStepClick) {
-              onStepClick(index);
-            }
-          };
-
-          return (
-            <div
-              key={index}
-              className={`d-flex align-items-center gap-2 ${textClass}`}
-              style={{
-                cursor: isClickable ? "pointer" : "default",
-                pointerEvents: isClickable ? "auto" : "none",
-              }}
-              onClick={handleClick}
-            >
-              <div>{step.icon}</div>
-              <span className={isActive ? "fw-bold" : ""}>{step.label}</span>
-
-              {index < steps.length - 1 && (
-                <div
-                  className={`mx-2 ${connectorClass}`}
-                  style={{ width: 30 }}
-                ></div>
-              )}
-            </div>
-          );
-        })}
-      </div>
+        return (
+          <div
+            key={index}
+            className={`step-item ${
+              isActive ? "active" : isPrevious ? "previous" : ""
+            }`}
+            onClick={handleClick}
+            style={{
+              cursor: isClickable ? "pointer" : "default",
+              pointerEvents: isClickable ? "auto" : "none",
+            }}
+          >
+            <div className="step-icon">{step.icon}</div>
+            <div className="step-label d-none d-md-inline">{step.label}</div>
+          </div>
+        );
+      })}
     </div>
   );
 };

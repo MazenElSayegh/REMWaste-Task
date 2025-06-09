@@ -62,67 +62,67 @@ function App() {
   const [modalSkip, setModalSkip] = useState<Skip | null>(null);
 
   return (
-    <div className="template-wrapper">
+    <div>
       <header className="template-header py-2 shadow-sm">
         <div className="container">
           <h2 className="text-success">#WeWantWaste</h2>
         </div>
       </header>
-
       <Stepper activeStep={activeStep} />
+      <div className="template-wrapper">
+        <section className="template-hero py-4">
+          <div className="container text-center">
+            <h1 className="display-5 text-dark">Choose Your Skip Size</h1>
+            <p className="text-muted">
+              Eco-friendly skips for your next clean-up project
+            </p>
+          </div>
+        </section>
 
-      <section className="template-hero py-4">
-        <div className="container text-center">
-          <h1 className="display-5 text-dark">Choose Your Skip Size</h1>
-          <p className="text-muted">
-            Eco-friendly skips for your next clean-up project
-          </p>
-        </div>
-      </section>
+        <section className="template-content py-3">
+          <div className="container">
+            {loading ? (
+              <div className="text-center text-secondary">Loading skips...</div>
+            ) : skips.length === 0 ? (
+              <div className="text-center text-warning">
+                No skips available.
+              </div>
+            ) : (
+              <div className="row g-4">
+                {skips.map((skip) => (
+                  <div className="col-md-3" key={skip.id}>
+                    <SkipCard
+                      skip={skip}
+                      selected={selectedSkip?.id === skip.id}
+                      imageUrl={getImageBySize(skip.size)}
+                      onSelect={handleSelectSkip}
+                      onViewDetails={(skip) => {
+                        setModalSkip(skip);
+                        setShowModal(true);
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
 
-      <section className="template-content py-3">
-        <div className="container">
-          {loading ? (
-            <div className="text-center text-secondary">Loading skips...</div>
-          ) : skips.length === 0 ? (
-            <div className="text-center text-warning">No skips available.</div>
-          ) : (
-            <div className="row g-4">
-              {skips.map((skip) => (
-                <div className="col-md-3" key={skip.id}>
-                  <SkipCard
-                    skip={skip}
-                    selected={selectedSkip?.id === skip.id}
-                    imageUrl={getImageBySize(skip.size)}
-                    onSelect={handleSelectSkip}
-                    onViewDetails={(skip) => {
-                      setModalSkip(skip);
-                      setShowModal(true);
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      <SkipDetailsModal
-        show={showModal}
-        skip={modalSkip}
-        imageUrl={modalSkip ? getImageBySize(modalSkip.size) : ""}
-        onClose={() => setShowModal(false)}
-      />
-
-      {selectedSkip && (
-        <SkipFooter skip={selectedSkip} onClear={handleClearSelectedSkip} />
-      )}
-
+        <SkipDetailsModal
+          show={showModal}
+          skip={modalSkip}
+          imageUrl={modalSkip ? getImageBySize(modalSkip.size) : ""}
+          onClose={() => setShowModal(false)}
+        />
+      </div>
       <footer className="template-footer mt-3 py-3 text-center text-muted">
         <small>
           © {new Date().getFullYear()} WeWantWaste. All rights reserved.
         </small>
       </footer>
+      {selectedSkip && (
+        <SkipFooter skip={selectedSkip} onClear={handleClearSelectedSkip} />
+      )}
     </div>
   );
 }

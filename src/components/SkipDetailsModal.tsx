@@ -24,7 +24,7 @@ const SkipDetailsModal = ({
       </Modal.Header>
       <Modal.Body>
         <img src={imageUrl} alt="Skip" className="img-fluid mb-3 rounded" />
-        <div className="d-flex justify-content-between mb-1 px-4">
+        <div className="d-flex justify-content-between mb-1 modal-details">
           <div>
             <p>
               <strong>Hire Period:</strong> {skip.hire_period_days} days
@@ -43,8 +43,7 @@ const SkipDetailsModal = ({
           </div>
           <div>
             <p>
-              <strong>Price (ex. VAT):</strong> £
-              {skip.price_before_vat.toFixed(2)}
+              <strong>Price:</strong> £{skip.price_before_vat.toFixed(2)}
             </p>
             <p>
               <strong>VAT:</strong> £{skip.vat?.toFixed(2)}
