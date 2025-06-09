@@ -47,7 +47,9 @@ const Stepper = ({ activeStep, onStepClick }: StepperProps) => {
               pointerEvents: isClickable ? "auto" : "none",
             }}
           >
-            <div className="step-icon">{step.icon}</div>
+            <div className="step-icon" title={step.label}>
+              {step.icon}
+            </div>
             <div className="step-label d-none d-md-inline">{step.label}</div>
           </div>
         );
